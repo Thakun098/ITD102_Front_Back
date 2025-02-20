@@ -9,12 +9,11 @@ function CreateUser() {
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            axios
-                .post("http://localhost:5000/create-user", { name, lastname, salary });
-            navigate('/'); //redirect to home page
+            await axios.post("http://localhost:5000/create-user", { name, lastname, salary });
+                navigate('/'); //redirect to home page
 
 
         } catch (error) {
