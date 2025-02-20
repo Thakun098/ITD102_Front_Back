@@ -32,10 +32,10 @@ const UpdateUser = () => {
         }
     }, [id]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            axios
+           await axios
                 .put(`http://localhost:5000/update-user/${id}`, { name, lastname, salary });
             navigate("/")
 
@@ -51,7 +51,7 @@ const UpdateUser = () => {
             {message && <p className='text-danger'>{message}</p>}
             <form onSubmit={handleSubmit}>
                 <div className='w-25 mb-3'>
-                    <label className='form-label'>Name</label>
+                    <label className='form-label'>Name: {name}</label>
                     <input
                         type='text'
                         className='form-control'
@@ -62,7 +62,7 @@ const UpdateUser = () => {
                 </div>
 
                 <div className='w-25 mb-3'>
-                    <label className='form-label'>Lastname</label>
+                    <label className='form-label'>Lastname: {lastname}</label>
                     <input
                         type='text'
                         className='form-control'
@@ -73,7 +73,7 @@ const UpdateUser = () => {
                 </div>
 
                 <div className='w-25 mb-3'>
-                    <label className='form-label'>Salary</label>
+                    <label className='form-label'>Salary: {salary}</label>
                     <input
                         type='text'
                         className='form-control'
