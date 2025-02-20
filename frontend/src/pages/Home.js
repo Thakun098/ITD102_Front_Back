@@ -23,12 +23,12 @@ function Home() {
     };
     
 
-    const deleteUser = (id) => {
+    const deleteUser = async (id) => {
         if (window.confirm("Are you sure ?")) {
             try {
-                axios
-                .delete(`http://localhost:5000/delete-user/${id}`);
+               await axios.delete(`http://localhost:5000/delete-user/${id}`);
                 fetchUser()
+                
 
             } catch (error) {
                 console.log("Error deleting user: " + error)
